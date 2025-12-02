@@ -8,24 +8,20 @@
     box-sizing: border-box;
 }
 
-/* NOVAS CORES: PRETO, DOURADO E VERMELHO */
 :root {
-    --primary-color: #CCAC00;    /* Gold (Dourado Escuro/Elegante - Acento Principal) */
-    --secondary-color: #0A0A0A;  /* Black (Preto Quase Total - Fundo Escuro) */
-    --text-color: #F0F0F0;       /* Off-White (Texto Claro sobre fundo escuro) */
-    --light-bg: #1A1A1A;         /* Dark Gray/Black (Fundo de Seção/Fundo Principal) */
-    --accent-color: #FFD700;     /* Bright Gold (Dourado Brilhante - Títulos/Destaques) */
-    --heart-color: #CC0000;      /* Red (Vermelho - Cor do Coração) */ 
+    --primary-color: #F8BBD0; /* Rosa Claro - Meigo */
+    --secondary-color: #880E4F; /* Vinho/Roxo Escuro - Elegante */
+    --text-color: #160707; /* Cinza Escuro */
+    --light-bg: #FFF0F5; /* Branco Rosado (Snow) */
+    --accent-color: #ffd700; /* Rosa Bebê */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
 }
 
 body {
     font-family: var(--font-body);
-    /* Cor do texto geral em cinza claro */
-    color: var(--text-color); 
-    /* Fundo geral da página preto/escuro */
-    background-color: var(--light-bg); 
+    color: var(--text-color);
+    background-color: var(--light-bg);
     line-height: 1.6;
     text-align: center;
 }
@@ -48,13 +44,16 @@ body {
     width: 100%;
     height: 100%;
     
-    /* CONFIGURAÇÃO PARA PREENCHER O ESPAÇO, MANTENDO O CENTRO VISÍVEL */
-    background-size:auto 150%; 
+    /* CONFIGURAÇÃO TELA CHEIA (COVER) */
+    background-size:auto 100%; 
     background-repeat: no-repeat;
-    background-position: center center;
-    /* Ajustado o filtro para dar contraste sem deixar a imagem escura demais */
-    filter: brightness(0.8); 
+    /* 🚨 ALTERAÇÃO: Centraliza a imagem para minimizar o corte de elementos importantes */
+    background-position: center center; 
     
+    /* EFEITO PARALLAX */
+    background-attachment: fixed;
+    
+    filter: brightness(0.8); 
     z-index: 1;
 }
 
@@ -63,19 +62,16 @@ body {
     z-index: 2;
     color: white;
     padding: 25px 35px;
-    /* Fundo da caixa de texto preto transparente */
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(136, 14, 79, 0.6); 
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-    /* Borda Dourada */
     border: 3px solid var(--primary-color);
 }
 
 .hero-text h1 {
     font-family: var(--font-heading);
     font-size: 4em;
-    /* Título em Dourado Brilhante */
-    color: var(--accent-color); 
+    color: var(--accent-color);
     margin-bottom: 0.1em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -87,8 +83,7 @@ body {
 }
 
 .hero-text i {
-    /* Coração em Vermelho */
-    color: var(--heart-color);
+    color: #FF69B4;
     margin: 0 10px;
 }
 
@@ -107,26 +102,22 @@ body {
 section {
     padding: 50px 30px;
     margin-bottom: 40px;
-    /* Fundo de seção Preto */
-    background-color: var(--secondary-color);
+    background-color: white;
     border-radius: 20px;
-    /* Sombra mais escura */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 h3 {
     font-family: var(--font-heading);
     font-size: 2.2em;
-    /* Título em Dourado Brilhante */
-    color: var(--accent-color); 
+    color: var(--secondary-color);
     margin-bottom: 25px;
     position: relative;
     display: inline-block;
 }
 
 h3::after {
-    /* Coração do título em Vermelho */
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="%23CC0000" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="%23FFC0CB" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
     position: absolute;
     top: -10px;
     right: -25px;
@@ -147,10 +138,13 @@ p {
 .details-countdown-grid section {
     padding: 30px;
     margin: 0;
-    /* Fundos um pouco mais claros (Dark Gray) para contraste */
-    background-color: var(--light-bg); 
 }
-
+.countdown-section {
+    background-color: var(--accent-color);
+}
+.details-section {
+    background-color: white;
+}
 .details-countdown-grid h3 {
     text-align: center;
 }
@@ -164,14 +158,12 @@ p {
 }
 
 .time-box {
-    /* Fundo da caixa preto */
     background-color: var(--secondary-color);
     color: white;
     padding: 18px 25px;
     border-radius: 12px;
     min-width: 90px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* Borda Dourada */
     border: 2px solid var(--primary-color);
 }
 
@@ -184,8 +176,7 @@ p {
     font-size: 2.8em;
     font-weight: 700;
     line-height: 1.1;
-    /* Números em Dourado */
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .label {
@@ -193,23 +184,27 @@ p {
     font-weight: 600;
     margin-top: 5px;
     text-transform: uppercase;
-    /* Label em branco/claro */
-    color: var(--text-color);
+    color: white;
 }
 
 /* --- DETALHES (DENTRO DO GRID) --- */
+.details-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
 .detail-item {
     padding: 15px;
     border: none;
 }
 .detail-item h4 {
-    /* Título em Dourado */
-    color: var(--accent-color);
+    color: var(--secondary-color);
     margin-bottom: 10px;
     font-size: 1.3em;
 }
 .map-link {
-    /* Link em Dourado */
     color: var(--primary-color);
     font-weight: 700;
     text-decoration: none;
@@ -217,7 +212,7 @@ p {
     transition: color 0.3s;
 }
 .map-link:hover {
-    color: var(--accent-color);
+    color: var(--secondary-color);
 }
 
 /* --- GALERIA DE FOTOS --- */
@@ -236,8 +231,7 @@ p {
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    /* Borda Dourada */
-    border: 3px solid var(--primary-color);
+    border: 3px solid var(--accent-color);
 }
 
 .photo-item:hover {
@@ -249,21 +243,33 @@ p {
 .gallery-note {
     margin-top: 30px;
     font-style: italic;
-    /* Nota em Dourado */
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
-/* --- PRESENTES --- */
-.gift-options {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+/* --- RSVP (NOVA SEÇÃO) --- */
+.rsvp-section .rsvp-button {
+    font-size: 1.1em;
+    padding: 15px 30px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    margin-bottom: 10px;
 }
 
+.rsvp-section .rsvp-button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.rsvp-note {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+/* --- BOTÃO GENÉRICO (para RSVP e Presentes) --- */
 .gift-button {
     display: inline-block;
-    /* Botão Padrão: Dourado com texto Preto */
     background-color: var(--primary-color);
     color: var(--secondary-color);
     padding: 12px 25px;
@@ -271,25 +277,21 @@ p {
     border-radius: 5px;
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    /* Borda Preta */
     border: 2px solid var(--secondary-color);
 }
 
 .gift-button:hover {
-    /* Hover: Preto com texto Dourado */
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: white;
     transform: scale(1.05);
 }
 
 .pix-button {
-    /* Botão Pix: Preto com texto Dourado */
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: white;
 }
 
 .pix-button:hover {
-    /* Hover Pix: Dourado com texto Preto */
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
@@ -297,8 +299,7 @@ p {
 .pix-info {
     margin-top: 15px;
     font-size: 0.9em;
-    /* Informação Pix em Dourado */
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-weight: 600;
 }
 
@@ -314,30 +315,25 @@ p {
     flex-basis: 45%;
     min-width: 250px;
     padding: 20px;
-    /* Fundo de item em Dark Gray */
-    background-color: var(--light-bg);
+    background-color: var(--accent-color);
     border-radius: 10px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .info-item h4 {
-    /* Título em Dourado */
-    color: var(--accent-color);
+    color: var(--secondary-color);
 }
 
 /* --- FOOTER --- */
 footer {
-    /* Fundo do rodapé Preto */
     background-color: var(--secondary-color);
     color: white;
     padding: 18px;
     font-size: 0.9em;
     margin-top: 30px;
-    border-top: 2px solid var(--primary-color);
 }
 footer i {
-    /* Coração do rodapé em Vermelho */
-    color: var(--heart-color);
+    color: #FF69B4;
 }
 
 /* --- RESPONSIVIDADE (MOBILE) --- */
@@ -369,7 +365,7 @@ footer i {
         flex-direction: column;
         gap: 15px;
     }
-    .gift-button {
+    .gift-button, .rsvp-button {
         width: 100%;
     }
 }
