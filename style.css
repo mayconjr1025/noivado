@@ -1,0 +1,354 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap');
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #F8BBD0; /* Rosa Claro - Meigo */
+    --secondary-color: #880E4F; /* Vinho/Roxo Escuro - Elegante */
+    --text-color: #4A4A4A; /* Cinza Escuro */
+    --light-bg: #FFF0F5; /* Branco Rosado (Snow) */
+    --accent-color: #FFC0CB; /* Rosa Bebê */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* --- HERO SECTION (TOPO DA PÁGINA) --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* CONFIGURAÇÃO PARA PREENCHER O ESPAÇO, MANTENDO O CENTRO VISÍVEL */
+    background-size:auto 150%; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* Ajustado o filtro para dar contraste sem deixar a imagem escura demais */
+    filter: brightness(0.8); 
+    
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 25px 35px;
+    background-color: rgba(136, 14, 79, 0.6); 
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    border: 3px solid var(--primary-color);
+}
+
+.hero-text h1 {
+    font-family: var(--font-heading);
+    font-size: 4em;
+    color: var(--accent-color);
+    margin-bottom: 0.1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8em;
+    margin-bottom: 0.8em;
+}
+
+.hero-text i {
+    color: #FF69B4;
+    margin: 0 10px;
+}
+
+.date-location {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 50px 30px;
+    margin-bottom: 40px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+h3::after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="%23FFC0CB" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+    position: absolute;
+    top: -10px;
+    right: -25px;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+/* --- NOVO: GRID DE DETALHES E CONTAGEM --- */
+.details-countdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    text-align: left;
+}
+.details-countdown-grid section {
+    padding: 30px;
+    margin: 0;
+}
+.countdown-section {
+    background-color: var(--accent-color);
+}
+.details-section {
+    background-color: white;
+}
+.details-countdown-grid h3 {
+    text-align: center;
+}
+
+/* --- CONTADOR REGRESSIVO --- */
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.time-box {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 18px 25px;
+    border-radius: 12px;
+    min-width: 90px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--primary-color);
+}
+
+.time-box span {
+    display: block;
+}
+
+.time-box #days, .time-box #hours, .time-box #minutes, .time-box #seconds {
+    font-family: var(--font-heading);
+    font-size: 2.8em;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--primary-color);
+}
+
+.label {
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-top: 5px;
+    text-transform: uppercase;
+    color: white;
+}
+
+/* --- DETALHES (DENTRO DO GRID) --- */
+.details-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+.detail-item {
+    padding: 15px;
+    border: none;
+}
+.detail-item h4 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+.map-link {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--primary-color);
+    transition: color 0.3s;
+}
+.map-link:hover {
+    color: var(--secondary-color);
+}
+
+/* --- GALERIA DE FOTOS --- */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.photo-item {
+    width: 100%;
+    padding-bottom: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 3px solid var(--accent-color);
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-note {
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+/* --- PRESENTES --- */
+.gift-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gift-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid var(--secondary-color);
+}
+
+.gift-button:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+.pix-button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.pix-button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.pix-info {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* --- INFORMAÇÕES EXTRAS --- */
+.info-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.info-item {
+    flex-basis: 45%;
+    min-width: 250px;
+    padding: 20px;
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-item h4 {
+    color: var(--secondary-color);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 18px;
+    font-size: 0.9em;
+    margin-top: 30px;
+}
+footer i {
+    color: #FF69B4;
+}
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 3em;
+    }
+    .hero-text h2 {
+        font-size: 2em;
+    }
+    .details-countdown-grid {
+        grid-template-columns: 1fr;
+    }
+    .countdown-timer {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .time-box {
+        min-width: 60px;
+        padding: 10px;
+    }
+    .time-box #days, .time-box #hours, .time-box #minutes, .time-box #seconds {
+        font-size: 2em;
+    }
+    .photo-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .gift-options, .info-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .gift-button {
+        width: 100%;
+    }
+}
