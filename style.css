@@ -9,11 +9,11 @@
 }
 
 :root {
-    --primary-color: #F8BBD0; /* Rosa Claro - Meigo */
-    --secondary-color: #880E4F; /* Vinho/Roxo Escuro - Elegante */
-    --text-color: #160707; /* Cinza Escuro */
-    --light-bg: #FFF0F5; /* Branco Rosado (Snow) */
-    --accent-color: #ffd700; /* Rosa Bebê */
+    --primary-color: #021a0e; /* Rosa Claro - Meigo */
+    --secondary-color: #c2dace; /* Vinho/Roxo Escuro - Elegante */
+    --text-color: #0c0101; /* Cinza Escuro */
+    --light-bg: ; /* Branco Rosado (Snow) */
+    --accent-color: #c2dace; /* Rosa Bebê */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
 }
@@ -29,7 +29,13 @@ body {
 /* --- HERO SECTION (TOPO DA PÁGINA) --- */
 .hero {
     position: relative;
-    height: 100vh;
+    
+    /* Altura para a seção (85% da tela) */
+    height: 85vh; 
+    
+    /* Altura mínima para telas pequenas */
+    min-height: 600px; 
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,13 +50,16 @@ body {
     width: 100%;
     height: 100%;
     
-    /* CONFIGURAÇÃO TELA CHEIA (COVER) */
-    background-size:auto 100%; 
+    /* 🚨 MUDANÇA PRINCIPAL: De 'cover' para 'contain' */
+    /* 'contain' garante que a imagem caiba inteira sem cortes. */
+    background-size: contain; 
+    
     background-repeat: no-repeat;
-    /* 🚨 ALTERAÇÃO: Centraliza a imagem para minimizar o corte de elementos importantes */
+    
+    /* Centraliza a imagem no container */
     background-position: center center; 
     
-    /* EFEITO PARALLAX */
+    /* EFEITO PARALLAX (Fixo no Desktop) */
     background-attachment: fixed;
     
     filter: brightness(0.8); 
@@ -60,9 +69,10 @@ body {
 .hero-text {
     position: relative;
     z-index: 2;
-    color: white;
+    color: #0c0101; 
     padding: 25px 35px;
-    background-color: rgba(136, 14, 79, 0.6); 
+    /* 🚨 MUDANÇA PRINCIPAL: Bloco "O Nosso Sim!" com mais transparência (RGBA baseado em #c2dace) */
+    background-color: rgba(194, 218, 206, 0.3); 
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
     border: 3px solid var(--primary-color);
@@ -71,7 +81,8 @@ body {
 .hero-text h1 {
     font-family: var(--font-heading);
     font-size: 4em;
-    color: var(--accent-color);
+    /* Cor do título "O Nosso Sim!" com transparência (RGBA baseado em #c2dace com 85% de opacidade) */
+    color: rgba(194, 218, 206, 0.85); 
     margin-bottom: 0.1em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -367,5 +378,22 @@ footer i {
     }
     .gift-button, .rsvp-button {
         width: 100%;
+    }
+
+    /* CORREÇÃO DA IMAGEM NO CELULAR */
+    .hero-image {
+        /* Desativa o parallax, que causa problemas de zoom e corte em alguns celulares */
+        background-attachment: scroll; 
+        
+        /* Ajuste fino do tamanho do texto no celular */
+        background-position: center center; 
+    }
+
+    /* Ajuste para o texto não ficar gigante em cima da foto no celular */
+    .hero-text h1 {
+        font-size: 2.5em; 
+    }
+    .hero-text h2 {
+        font-size: 1.8em;
     }
 }
